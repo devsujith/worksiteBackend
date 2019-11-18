@@ -12,6 +12,34 @@ router.post('/signup',(req,res)=>{
         password : req.body.password
     }
 
+   
+    if (!params.name ) {
+        res.json({
+            success:false,
+            message : "Name is required"
+        })
+    return    
+
+    }
+
+    if (!params.email ) {
+        res.json({
+            success:false,
+            message : "Email is required"
+        })
+    return    
+
+    }
+
+    if (!params.password ) {
+        res.json({
+            success:false,
+            message : "Password is required"
+        })
+    return    
+
+    }
+
 
     Userdata.find({email: req.body.email}, function(err, user) 
     {
