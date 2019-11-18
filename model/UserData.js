@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/WorkSiteDb',{ useNewUrlParser: true, useUnifiedTopology: true  });
+mongoose.connect('mongodb+srv://sujith:9895249619@cluster0-xdvw2.mongodb.net/test?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true  });
 const Schema = mongoose.Schema;
 
 
