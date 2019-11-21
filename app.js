@@ -14,7 +14,7 @@ var projectRouter = require("./routes/project")
 app.use('/project',projectRouter)
 
 var employeeRouter = require("./routes/employee")
-app.use('/employee',projectRouter)
+app.use('/employee',employeeRouter)
 
 app.listen(process.env.PORT || 3000,()=>{
     console.log('Server started in port 3000');

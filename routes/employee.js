@@ -65,7 +65,7 @@ router.post('/addEmployee',(req,res)=>{
         })
     }
 
-    Userdata.find({ _id: req.body.userID }, function (err, doc){
+    Userdata.findOne({ _id: req.body.userID }, function (err, doc){
         
         if (err)
         {
@@ -78,6 +78,7 @@ router.post('/addEmployee',(req,res)=>{
         }
         else
         {
+            console.log(doc.employees)
             res.json({
                 success:true,
                 message : "data found",
@@ -143,7 +144,10 @@ router.post('/updateEmployee',(req,res)=>{
             }
         }
 
-        doc.employees[i] = params
+        doc.employees[i].name = params.name
+        doc.employees[i].code = params.code
+        doc.employees[i].type = params.type
+
         doc.save();
 
         res.json({
@@ -217,13 +221,10 @@ router.post('/updateEmployee',(req,res)=>{
             message : "Employee Deleted successfully",
             data : doc
         })
-
-
-        
+     
       });
 
-
-  
-    
- 
  })
+
+
+ module.exports = router
